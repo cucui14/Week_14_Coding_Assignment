@@ -25,7 +25,7 @@ function ReviewList(props) {
                                     id={movie.movieId}
                                     type={"button"} className="btn btn-primary"
                                     data-bs-toggle={"modal"} data-bs-target={"#exampleModal"}>
-                                Submit review
+                                Enter review
                             </button>
                             </div>
                     </div>
