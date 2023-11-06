@@ -1,6 +1,9 @@
+//importing app.css stylesheet
 import './App.css';
+//importing MovieList component
 import MovieList from '../src/components/MovieList.jsx';
 
+//allMovies array of objects
 let allMovies = [
   {
     moviename: 'Harry Potter and The Deathly Hallows Part 2',
@@ -80,7 +83,10 @@ let allMovies = [
   },
 ];
 
+//function component named App
 function App() {
+  //returns a div with the MovieList component in the div.
+  //Passing allMovies as a prop named movies
   return (
     <div>
       <MovieList movies={allMovies} />
@@ -88,4 +94,5 @@ function App() {
   );
 }
 
+//exporting function component App
 export default App;

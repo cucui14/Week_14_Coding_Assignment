@@ -1,10 +1,16 @@
+//importing react
 import React from 'react';
-import Review from './review'
+//importing Review component
+import Review from './review';
 
+//function component named ReviewList
 function ReviewList(props) {
+    //props received added to movie variable
     const movie = props.movie;
+    //props received added to newReviewModal variable
     const newReviewModal = props.newReviewModal;
 
+    //Review List component returns a bootstrap accordion that takes movie.movieId for each accordion created for each movie, maps through the reviews of each movie and creates a Review component for each review passing review as a prop.
     return (
         <>
             <div className='accordion'>
@@ -36,4 +42,5 @@ function ReviewList(props) {
     )
 }
 
+//exports ReviewList component
 export default ReviewList;
