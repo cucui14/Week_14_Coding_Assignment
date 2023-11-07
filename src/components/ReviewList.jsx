@@ -4,13 +4,8 @@ import React from 'react';
 import Review from './review';
 
 //function component named ReviewList
-function ReviewList(props) {
-    //props received added to movie variable
-    const movie = props.movie;
-    //props received added to newReviewModal variable
-    const newReviewModal = props.newReviewModal;
+function ReviewList({ movie, newReviewModalTitle }) {
 
-    //Review List component returns a bootstrap accordion that takes movie.movieId for each accordion created for each movie, maps through the reviews of each movie and creates a Review component for each review passing review as a prop.
     return (
         <>
             <div className='accordion'>
@@ -23,11 +18,11 @@ function ReviewList(props) {
                 <div id={`collapse${movie.movieId}`} className="accordion-collapse collapse" data-bs-parent={"#accordionExample"}>
                     <div className="accordion-body">
                         {movie.reviews.map((review) => (
-                            <Review review={review} key={review.id} />
-                        ))}
+        <Review review={review} key={review.id} />
+    ))}
                             <div className='border-top border-secondary p-3'>
                                 <button
-                                    onClick={(e) => newReviewModal(e.target.id)}
+                                    onClick={(e) => newReviewModalTitle(e.target.id)}
                                     id={movie.movieId}
                                     type={"button"} className="btn btn-primary"
                                     data-bs-toggle={"modal"} data-bs-target={"#exampleModal"}>

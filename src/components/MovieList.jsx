@@ -6,35 +6,26 @@ import Movie from "./Movie";
 import NewModal from './NewModal';
 
 //function component named MovieList passing props
-function MovieList(props) {
-  //prop received added to allMovies variable
-  const allMovies = props.movies;
+function MovieList({ allMovies }) {
 
-  //useState added to movieTitle variable with setMovieTitle function
-  const [movieTitle, setMovieTitle] = useState('')
-  //useState added to movieReviews variable with setmovieReviews function
-  const [movieReviews, setmovieReviews] = useState('')
-  
-  //function named newReviewModal with id as an argument. movieTitle and movieReviews are been passed to NewModal component as a prop
-  function newReviewModal(id) {
-    //mapping through allMovies
+  const [movieReviews, setMovieReviews] = useState('')
+  const [movieModal, setMovieModal] = useState('')
+
+  function newReviewModalTitle(id) {
     allMovies.map((movie) => {
-    //if the id of any of the movies matches with the id been passed setMovieTitle and setmovieReviews are set
-    if (movie.movieId === id) {
-      setMovieTitle(movie);
-      setmovieReviews(movie.reviews)
+    if (movie.movieId == id) {
+      setMovieModal(movie);
        }
   })
   }
 
-  //MovieList component returns a title as movies, NewModal component, maps through allMovies and and creates a new Movie component for each while passing movie, key and newReviewModal to each.
   return (
     <>
       <div className='m-5 fs-1 fw-bold text-primary'>Movies</div>
       <div>
-        <NewModal movieTitle={movieTitle} movieReviews={movieReviews} />
+        <NewModal movie={movieModal} setMovieReviews={setMovieReviews} />
         {allMovies.map((movie) => (
-          <Movie movie={movie} key={movie.movieId} newReviewModal={newReviewModal} />
+          <Movie movie={movie} key={movie.movieId} newReviewModalTitle={newReviewModalTitle} />
         ))}
       </div>
     </>

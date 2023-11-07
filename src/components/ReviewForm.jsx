@@ -2,30 +2,23 @@
 import { useState } from "react";
 
 //function component named ReviewForm taking props as an argument
-function ReviewForm(props) {
-    //movie reviews added to movieReviews variable
-    const movieReviews = props.movieReviews;
-    //movie Id of each movie added to parentId variable
-    const parentId = props.movie.movieId;
+function ReviewForm({movie, setMovieReviews}) {
 
-    //useState to set the name of reviewer
+    const parentId = movie.movieId;
     const [name, setName] = useState('');
-    //useStae to set a new review
     const [review, setReview] = useState('');
-    //useState to set the stars of a new review
-    const [starsgiven, setStarsGiven] = useState('0')
+    const [starsgiven, setStarsGiven] = useState(parseInt('0'));
 
-    //handleClick function for when a new review id submitted
     function handleClick() {
-        //newReview variable takes parentId, name, reviews and stars given as an object
-        const newReview = { parentId, name, review, starsgiven }
-        //pushes newReview to movieReviews
-        movieReviews.push(newReview);
-        //logs to the console movieReviews to check the new review was added
-        console.log(movieReviews);
+        let sortedReviews = movie.reviews.sort((a, b) => { return a.id - b.id });
+        let lastId = sortedReviews[sortedReviews.length - 1].id;
+        let id = lastId + 1;
+        let newReview = { parentId, id, name, review, starsgiven }
+        let updatedReviews = movie.reviews.push(newReview);
+        setMovieReviews(updatedReviews);
+        console.log(movie.reviews);
     }
     
-    //ReviewForm component returns a bootstrap form to enter a new review
     return (
         <>
                 <label
