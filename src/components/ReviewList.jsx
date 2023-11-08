@@ -4,7 +4,8 @@ import React from 'react';
 import Review from './review';
 
 //function component named ReviewList
-function ReviewList({ movie, newReviewModalTitle }) {
+function ReviewList({ movie, newReviewModalTitle }) { 
+
 
     return (
         <>

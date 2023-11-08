@@ -16,7 +16,7 @@ function ReviewForm({movie, setMovieReviews}) {
         let newReview = { parentId, id, name, review, starsgiven }
         let updatedReviews = movie.reviews.push(newReview);
         setMovieReviews(updatedReviews);
-        console.log(movie.reviews);
+        console.log(updatedReviews);
     }
     
     return (

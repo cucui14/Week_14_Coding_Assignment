@@ -6,6 +6,7 @@ import Stars from './Stars';
 //function component named Review takes props as an argument
 function Review({review}) {
     
+
     return (
         <>
             <div className="border-top border-secondary p-3">
